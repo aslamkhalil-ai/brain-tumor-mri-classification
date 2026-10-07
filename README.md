@@ -124,6 +124,31 @@ Save Analysis to MySQL
        ↓
 Display Result on Flask Dashboard
 ```
+## Screenshots
+
+### Dashboard
+
+The main dashboard provides an overview of the Brain Tumor MRI Classification system.
+
+![Dashboard](screenshot/dashboard.png)
+
+### MRI Analyzer
+
+Users can upload an MRI image and receive the predicted tumor class and confidence score.
+
+![MRI Analyzer](screenshot/mri.analyzer.png)
+
+### Model Insights
+
+The insights dashboard displays model performance information and stored MRI analysis records.
+
+![Model Insights](screenshot/model.insights.png)
+
+### Grad-CAM Explainability
+
+Grad-CAM provides a visual explanation of the regions that influenced the model's prediction.
+
+![Grad-CAM Explainability](screenshot/about.png)
 
 ### Prediction Pipeline
 
