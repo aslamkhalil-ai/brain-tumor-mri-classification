@@ -157,3 +157,47 @@ Display Result on Flask Dashboard
 
 9. **Analytics & History**  
    Stored analysis records are displayed on the Insights page for historical tracking and analysis.
+## 📁 Project Structure
+
+```text
+brain-tumor-mri-classification/
+│
+├── app.py
+├── README.md
+├── .gitignore
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   │
+│   ├── js/
+│   │   └── dashboard.js
+│   │
+│   └── images/
+│       └── brain.png
+│
+└── templates/
+    ├── dashboard.html
+    ├── analyzer.html
+    ├── insights.html
+    └── about.html
+```
+
+### Main Components
+
+| Component | Description |
+|---|---|
+| `app.py` | Flask application, model prediction, Grad-CAM, API routes, and MySQL integration |
+| `templates/` | HTML pages for the web application |
+| `static/css/` | Application styling |
+| `static/js/` | JavaScript functionality for the web interface |
+| `static/images/` | Static images used by the application |
+| `README.md` | Project documentation |
+| `.gitignore` | Prevents datasets, models, environments, uploads, and other unnecessary files from being committed |
+
+### Application Pages
+
+- **Dashboard** — Project overview and system information
+- **MRI Analysis** — Upload and analyze MRI images
+- **Insights** — View model information and stored analysis records
+- **About** — Project and technology information   
