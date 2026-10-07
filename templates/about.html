@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>About | BrainAI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                <img
+                    src="{{ url_for('static', filename='images/brain.png') }}"
+                    alt="BrainAI"
+                >
+            </div>
+
+            <div class="brand-text">
+                <strong>BrainAI</strong>
+                <span>MRI Intelligence</span>
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <span class="sidebar-label">
+                Workspace
+            </span>
+
+            <nav class="sidebar-nav">
+
+                <a href="/" class="sidebar-link">
+                    <span class="nav-icon">⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="/analyzer" class="sidebar-link">
+                    <span class="nav-icon">◉</span>
+                    MRI Analysis
+                </a>
+
+                <a href="/insights" class="sidebar-link">
+                    <span class="nav-icon">◈</span>
+                    Model Insights
+                </a>
+
+                <a
+                    href="/about"
+                    class="sidebar-link active"
+                >
+                    <span class="nav-icon">ⓘ</span>
+                    Explainability
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>AI Engine Online</strong>
+                    <small>MobileNetV2</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="eyebrow">
+                    ABOUT BRAINAI
+                </span>
+
+                <h1>
+                    Explainability
+                </h1>
+
+            </div>
+
+            <div class="topbar-status">
+
+                <span class="status-dot"></span>
+
+                Research Prototype
+
+            </div>
+
+        </header>
+
+
+        <section class="page-intro">
+
+            <span class="hero-tag">
+                ABOUT THE PROJECT
+            </span>
+
+            <h2>
+                Making medical AI
+                easier to understand.
+            </h2>
+
+            <p>
+                BrainAI is an educational and research
+                prototype demonstrating how deep
+                learning can be applied to brain MRI
+                image classification.
+            </p>
+
+        </section>
+
+
+        <section class="about-grid">
+
+
+            <div class="analysis-card">
+
+                <span class="eyebrow">
+                    PROJECT PURPOSE
+                </span>
+
+                <h2>
+                    What is BrainAI?
+                </h2>
+
+                <p>
+                    BrainAI demonstrates an end-to-end
+                    computer vision workflow starting
+                    from MRI image upload and preprocessing
+                    through model inference and visual
+                    explanation.
+                </p>
+
+                <p>
+                    The system was developed as a portfolio,
+                    learning and research project to
+                    demonstrate machine learning,
+                    deep learning, Flask deployment and
+                    explainable AI.
+                </p>
+
+            </div>
+
+
+            <div class="analysis-card">
+
+                <span class="eyebrow">
+                    TECHNOLOGY
+                </span>
+
+                <h2>
+                    Technology Stack
+                </h2>
+
+
+                <div class="tech-grid">
+
+                    <span>Python</span>
+                    <span>TensorFlow</span>
+                    <span>Keras</span>
+                    <span>MobileNetV2</span>
+                    <span>NumPy</span>
+                    <span>Scikit-learn</span>
+                    <span>Flask</span>
+                    <span>OpenCV</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="analysis-card large-card">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        AI WORKFLOW
+                    </span>
+
+                    <h2>
+                        From MRI to explanation
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="workflow">
+
+                <div class="workflow-step">
+
+                    <span>01</span>
+
+                    <strong>
+                        Upload
+                    </strong>
+
+                    <p>
+                        User selects an MRI image.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-line"></div>
+
+
+                <div class="workflow-step">
+
+                    <span>02</span>
+
+                    <strong>
+                        Preprocess
+                    </strong>
+
+                    <p>
+                        Image is resized and prepared
+                        for MobileNetV2.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-line"></div>
+
+
+                <div class="workflow-step">
+
+                    <span>03</span>
+
+                    <strong>
+                        Predict
+                    </strong>
+
+                    <p>
+                        The trained model produces
+                        class probabilities.
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-line"></div>
+
+
+                <div class="workflow-step">
+
+                    <span>04</span>
+
+                    <strong>
+                        Explain
+                    </strong>
+
+                    <p>
+                        Grad-CAM visualizes influential
+                        image regions.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="analysis-card large-card">
+
+            <span class="eyebrow">
+                GRAD-CAM
+            </span>
+
+            <h2>
+                How explainability works
+            </h2>
+
+            <p>
+                Grad-CAM, or Gradient-weighted Class
+                Activation Mapping, uses gradients from
+                the model to identify image regions that
+                contributed to a selected prediction.
+            </p>
+
+            <p>
+                In BrainAI, the visualization is generated
+                after prediction and displayed alongside
+                the model's classification result.
+            </p>
+
+            <div class="explain-box">
+
+                <strong>
+                    Important
+                </strong>
+
+                <p>
+                    A Grad-CAM heatmap is an explanation
+                    aid, not proof that a particular
+                    anatomical region contains a disease.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="dashboard-cta">
+
+            <div>
+
+                <span class="hero-tag">
+                    RESEARCH & EDUCATIONAL PROTOTYPE
+                </span>
+
+                <h2>
+                    Not a clinical diagnostic system.
+                </h2>
+
+                <p>
+                    BrainAI is intended for research,
+                    education and experimentation. Its
+                    predictions should not replace
+                    professional medical evaluation.
+                </p>
+
+            </div>
+
+            <a
+                href="/analyzer"
+                class="primary-button"
+            >
+                Try MRI Analyzer →
+            </a>
+
+        </section>
+
+
+        <footer class="footer">
+
+            <span>
+                BrainAI MRI Intelligence
+            </span>
+
+            <span>
+                Explainable AI · Grad-CAM
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+
+</html>

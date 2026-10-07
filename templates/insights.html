@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Model Insights | BrainAI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+
+                <img
+                    src="{{ url_for('static', filename='images/brain.png') }}"
+                    alt="BrainAI"
+                >
+
+            </div>
+
+            <div class="brand-text">
+
+                <strong>BrainAI</strong>
+
+                <span>
+                    MRI Intelligence
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <span class="sidebar-label">
+                Workspace
+            </span>
+
+            <nav class="sidebar-nav">
+
+                <a href="/" class="sidebar-link">
+
+                    <span class="nav-icon">
+                        ⌂
+                    </span>
+
+                    Dashboard
+
+                </a>
+
+
+                <a href="/analyzer" class="sidebar-link">
+
+                    <span class="nav-icon">
+                        ◉
+                    </span>
+
+                    MRI Analysis
+
+                </a>
+
+
+                <a
+                    href="/insights"
+                    class="sidebar-link active"
+                >
+
+                    <span class="nav-icon">
+                        ◈
+                    </span>
+
+                    Model Insights
+
+                </a>
+
+
+                <a href="/about" class="sidebar-link">
+
+                    <span class="nav-icon">
+                        ⓘ
+                    </span>
+
+                    Explainability
+
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+
+                    <strong>
+                        AI Engine Online
+                    </strong>
+
+                    <small>
+                        MobileNetV2
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="eyebrow">
+                    MODEL INTELLIGENCE
+                </span>
+
+                <h1>
+                    Model Insights
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-status">
+
+                <span class="status-dot"></span>
+
+                Model Ready
+
+            </div>
+
+        </header>
+
+
+        <section class="page-intro">
+
+            <span class="hero-tag">
+                PERFORMANCE OVERVIEW
+            </span>
+
+            <h2>
+                Understand the model
+                behind the predictions.
+            </h2>
+
+            <p>
+                A technical overview of the dataset,
+                model architecture, training setup
+                and real-world analysis activity.
+            </p>
+
+        </section>
+
+
+        <!-- DATABASE ANALYTICS -->
+
+        <section class="metric-grid">
+
+
+            <div class="metric-card">
+
+                <span>
+                    TOTAL MRI ANALYSES
+                </span>
+
+                <strong>
+                    {{ stats.total }}
+                </strong>
+
+                <small>
+                    Database records
+                </small>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    GLIOMA
+                </span>
+
+                <strong>
+                    {{ stats.glioma }}
+                </strong>
+
+                <small>
+                    Analyses
+                </small>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    MENINGIOMA
+                </span>
+
+                <strong>
+                    {{ stats.meningioma }}
+                </strong>
+
+                <small>
+                    Analyses
+                </small>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    PITUITARY
+                </span>
+
+                <strong>
+                    {{ stats.pituitary }}
+                </strong>
+
+                <small>
+                    Analyses
+                </small>
+
+            </div>
+
+
+        </section>
+
+
+        <section class="metric-grid">
+
+
+            <div class="metric-card">
+
+                <span>
+                    NO TUMOR
+                </span>
+
+                <strong>
+                    {{ stats.notumor }}
+                </strong>
+
+                <small>
+                    Analyses
+                </small>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    AVG CONFIDENCE
+                </span>
+
+                <strong>
+                    {{ stats.avg_confidence }}%
+                </strong>
+
+                <small>
+                    Across all analyses
+                </small>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    TEST ACCURACY
+                </span>
+
+                <strong>
+                    83.13%
+                </strong>
+
+                <small>
+                    Held-out test set
+                </small>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    MODEL
+                </span>
+
+                <strong>
+                    V2
+                </strong>
+
+                <small>
+                    MobileNetV2
+                </small>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- DATASET INFORMATION -->
+
+        <section class="insight-grid">
+
+
+            <div class="analysis-card">
+
+                <span class="eyebrow">
+                    DATASET
+                </span>
+
+                <h2>
+                    Dataset Composition
+                </h2>
+
+                <p>
+                    The training and testing dataset
+                    contains four MRI classification
+                    categories.
+                </p>
+
+
+                <div class="dataset-list">
+
+                    <div class="dataset-row">
+
+                        <span>
+                            Glioma
+                        </span>
+
+                        <strong>
+                            1,800
+                        </strong>
+
+                    </div>
+
+
+                    <div class="dataset-row">
+
+                        <span>
+                            Meningioma
+                        </span>
+
+                        <strong>
+                            1,800
+                        </strong>
+
+                    </div>
+
+
+                    <div class="dataset-row">
+
+                        <span>
+                            No Tumor
+                        </span>
+
+                        <strong>
+                            1,800
+                        </strong>
+
+                    </div>
+
+
+                    <div class="dataset-row">
+
+                        <span>
+                            Pituitary
+                        </span>
+
+                        <strong>
+                            1,800
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="analysis-card">
+
+                <span class="eyebrow">
+                    ARCHITECTURE
+                </span>
+
+                <h2>
+                    MobileNetV2
+                </h2>
+
+                <p>
+                    A pretrained ImageNet feature
+                    extractor is combined with a
+                    custom classification head.
+                </p>
+
+
+                <div class="architecture-list">
+
+                    <div>
+
+                        <span>
+                            Base
+                        </span>
+
+                        <strong>
+                            MobileNetV2
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Pooling
+                        </span>
+
+                        <strong>
+                            Global Average Pooling
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Dense Layer
+                        </span>
+
+                        <strong>
+                            256 Units
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Output
+                        </span>
+
+                        <strong>
+                            4 Classes
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- PREDICTION DISTRIBUTION -->
+
+
+
+    
+
+</section>
+
+
+
+        <!-- RECENT DATABASE ANALYSES -->
+
+        <section class="analysis-card large-card">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        DATABASE ACTIVITY
+                    </span>
+
+                    <h2>
+                        Recent MRI Analyses
+                    </h2>
+
+                </div>
+
+                <span class="analysis-badge">
+                    records
+                </span>
+
+            </div>
+
+
+            <div class="performance-table">
+
+                <div class="table-row table-head">
+
+                    <span>
+                        ID
+                    </span>
+
+                    <span>
+                        Image
+                    </span>
+
+                    <span>
+                        Prediction
+                    </span>
+
+                    <span>
+                        Confidence
+                    </span>
+
+                </div>
+
+
+                {% if recent_analyses %}
+
+                    {% for analysis in recent_analyses %}
+
+                    <div class="table-row">
+
+                        <strong>
+                            #{{ analysis.id }}
+                        </strong>
+
+                        <span>
+                            {{ analysis.image_name }}
+                        </span>
+
+                        <span>
+                            {{ analysis.prediction|replace("notumor", "No Tumor")|title }}
+                        </span>
+
+                        <span>
+                            {{ "%.2f"|format(analysis.confidence|float) }}%
+                        </span>
+
+                    </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <div class="table-row">
+
+                        <span>
+                            No MRI analyses available yet.
+                        </span>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+            <!-- PAGINATION -->
+
+{% if total_pages > 1 %}
+
+<div class="pagination">
+
+    <!-- Previous Button -->
+
+    {% if page > 1 %}
+
+        <a
+            href="{{ url_for('insights', page=page-1) }}"
+            class="pagination-btn"
+        >
+            ← Previous
+        </a>
+
+    {% else %}
+
+        <span class="pagination-btn disabled">
+            ← Previous
+        </span>
+
+    {% endif %}
+
+
+    <!-- Page Numbers -->
+
+    <div class="pagination-pages">
+
+        {% for page_number in range(1, total_pages + 1) %}
+
+            {% if page_number == page %}
+
+                <span class="pagination-page active">
+                    {{ page_number }}
+                </span>
+
+            {% else %}
+
+                <a
+                    href="{{ url_for('insights', page=page_number) }}"
+                    class="pagination-page"
+                >
+                    {{ page_number }}
+                </a>
+
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- Next Button -->
+
+    {% if page < total_pages %}
+
+        <a
+            href="{{ url_for('insights', page=page+1) }}"
+            class="pagination-btn"
+        >
+            Next →
+        </a>
+
+    {% else %}
+
+        <span class="pagination-btn disabled">
+            Next →
+        </span>
+
+    {% endif %}
+
+</div>
+
+{% endif %}
+
+        </section>
+
+
+        <!-- MODEL EVALUATION -->
+
+        <section class="analysis-card large-card">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        EVALUATION
+                    </span>
+
+                    <h2>
+                        Classification Performance
+                    </h2>
+
+                </div>
+
+                <span class="analysis-badge">
+                    TEST SET · 1,600 IMAGES
+                </span>
+
+            </div>
+
+
+            <div class="performance-table">
+
+                <div class="table-row table-head">
+
+                    <span>
+                        Class
+                    </span>
+
+                    <span>
+                        Precision
+                    </span>
+
+                    <span>
+                        Recall
+                    </span>
+
+                    <span>
+                        F1 Score
+                    </span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <strong>
+                        Glioma
+                    </strong>
+
+                    <span>
+                        93.55%
+                    </span>
+
+                    <span>
+                        65.25%
+                    </span>
+
+                    <span>
+                        76.88%
+                    </span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <strong>
+                        Meningioma
+                    </strong>
+
+                    <span>
+                        75.00%
+                    </span>
+
+                    <span>
+                        71.25%
+                    </span>
+
+                    <span>
+                        73.08%
+                    </span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <strong>
+                        No Tumor
+                    </strong>
+
+                    <span>
+                        86.53%
+                    </span>
+
+                    <span>
+                        98.00%
+                    </span>
+
+                    <span>
+                        91.91%
+                    </span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <strong>
+                        Pituitary
+                    </strong>
+
+                    <span>
+                        80.33%
+                    </span>
+
+                    <span>
+                        98.00%
+                    </span>
+
+                    <span>
+                        88.29%
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="dashboard-cta">
+
+            <div>
+
+                <span class="hero-tag">
+                    INTERPRETATION
+                </span>
+
+                <h2>
+                    Model performance should be
+                    evaluated in context.
+                </h2>
+
+                <p>
+                    These results represent this
+                    project's test dataset and should
+                    not be interpreted as clinical
+                    diagnostic performance.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <footer class="footer">
+
+            <span>
+                BrainAI MRI Intelligence
+            </span>
+
+            <span>
+                Model Insights
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script
+    src="{{ url_for('static', filename='js/dashboard.js') }}"
+    
+></script>
+
+</body>
+
+</html>

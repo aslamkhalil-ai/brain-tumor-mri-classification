@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MRI Analyzer | BrainAI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app-shell">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+
+                <img
+                    src="{{ url_for('static', filename='images/brain.png') }}"
+                    alt="BrainAI"
+                >
+
+            </div>
+
+            <div class="brand-text">
+
+                <strong>BrainAI</strong>
+
+                <span>MRI Intelligence</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <span class="sidebar-label">
+                Workspace
+            </span>
+
+            <nav class="sidebar-nav">
+
+                <a href="/" class="sidebar-link">
+
+                    <span class="nav-icon">⌂</span>
+
+                    Dashboard
+
+                </a>
+
+
+                <a
+                    href="/analyzer"
+                    class="sidebar-link active"
+                >
+
+                    <span class="nav-icon">◉</span>
+
+                    MRI Analysis
+
+                </a>
+
+
+                <a href="/insights" class="sidebar-link">
+
+                    <span class="nav-icon">◈</span>
+
+                    Model Insights
+
+                </a>
+
+
+                <a href="/about" class="sidebar-link">
+
+                    <span class="nav-icon">ⓘ</span>
+
+                    Explainability
+
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+
+                    <strong>AI Engine Online</strong>
+
+                    <small>MobileNetV2</small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="eyebrow">
+                    BRAIN MRI ANALYSIS
+                </span>
+
+                <h1>
+                    MRI Analyzer
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-status">
+
+                <span class="status-dot"></span>
+
+                Analysis Engine Ready
+
+            </div>
+
+        </header>
+
+
+
+        <!-- PAGE INTRO -->
+
+        <section class="page-intro">
+
+            <span class="hero-tag">
+                AI CLASSIFICATION
+            </span>
+
+            <h2>
+                Upload a brain MRI
+                for analysis.
+            </h2>
+
+            <p>
+                The trained MobileNetV2 model analyzes
+                the uploaded MRI image and returns a
+                predicted class, confidence distribution
+                and Grad-CAM visualization.
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= ANALYZER ================= -->
+
+        <section id="mriAnalyzer" class="analyzer-layout">
+
+
+
+            <!-- ================= UPLOAD CARD ================= -->
+
+            <div class="analysis-card upload-card">
+
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <span class="card-kicker">
+                            STEP 01
+                        </span>
+
+                        <h2>
+                            MRI Image
+                        </h2>
+
+                    </div>
+
+
+                    <span class="analysis-badge">
+                        MAX 16 MB
+                    </span>
+
+                </div>
+
+
+
+                <!-- IMPORTANT:
+                     File input and browse button IDs
+                     MUST match dashboard.js
+                -->
+
+                <div
+                    id="uploadArea"
+                    class="upload-zone"
+                >
+
+
+                    <!-- FILE INPUT -->
+
+                    <input
+                        type="file"
+                        id="mriFile"
+                        name="file"
+                        accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+                        hidden
+                    >
+
+
+                    <div class="upload-icon">
+                        ↑
+                    </div>
+
+
+                    <h3>
+                        Drop MRI image here
+                    </h3>
+
+
+                    <p>
+                        or click below to browse
+                    </p>
+
+
+                    <span class="upload-limit">
+                        JPG · JPEG · PNG · WEBP
+                    </span>
+
+
+
+                    <!-- BROWSE BUTTON -->
+
+                    <button
+                        type="button"
+                        id="browseButton"
+                        class="primary-button"
+                    >
+                        Select MRI
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- ================= PREVIEW ================= -->
+
+                <div
+                    id="previewContainer"
+                    class="preview-container"
+                    style="display: none;"
+                >
+
+
+                    <div class="preview-header">
+
+                        <strong>
+                            Selected MRI
+                        </strong>
+
+
+                        <button
+                            id="resetButton"
+                            type="button"
+                            class="text-button"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="preview-image-wrap">
+
+                        <img
+                            id="mriPreview"
+                            alt="MRI preview"
+                        >
+
+                    </div>
+
+
+
+                    <div
+                        id="fileName"
+                        class="file-info"
+                    ></div>
+
+
+                    <div
+                        id="fileSize"
+                        class="file-info"
+                    ></div>
+
+
+                </div>
+
+
+
+                <!-- ================= ANALYZE ================= -->
+
+                <button
+                    id="analyzeButton"
+                    type="button"
+                    class="analysis-button"
+                    disabled
+                >
+
+                    <span>
+                        Analyze MRI
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ================= RESULT CARD ================= -->
+
+            <div class="analysis-card result-card">
+
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <span class="card-kicker">
+                            STEP 02
+                        </span>
+
+                        <h2>
+                            AI Classification
+                        </h2>
+
+                    </div>
+
+
+                    <span
+                        id="analyzerStatus"
+                        class="result-status"
+                    >
+                        WAITING
+                    </span>
+
+                </div>
+
+
+
+                <!-- EMPTY RESULT -->
+
+                <div
+                    id="predictionResult"
+                    class="result-empty"
+                >
+
+                    <div class="empty-icon">
+                        ◌
+                    </div>
+
+                    <h3>
+                        Awaiting MRI analysis
+                    </h3>
+
+                    <p>
+                        Upload an MRI scan to see
+                        the model prediction.
+                    </p>
+
+                </div>
+
+
+
+                <!-- RESULT CONTENT -->
+
+                <div
+                    id="resultContent"
+                    style="display: none;"
+                >
+
+
+                    <!-- PREDICTION -->
+
+                    <div class="prediction-result">
+
+                        <span class="prediction-label">
+                            PREDICTED CLASS
+                        </span>
+
+
+                        <h2 id="predictionClass">
+                            —
+                        </h2>
+
+
+                        <div class="confidence-display">
+
+                            <span>
+                                Confidence
+                            </span>
+
+
+                            <strong id="predictionConfidence">
+                                0%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PROBABILITIES -->
+
+                    <div class="probability-section">
+
+                        <div class="result-section-title">
+                            Model Distribution
+                        </div>
+
+
+                        <div
+                            id="probabilityList"
+                            class="probability-list"
+                        ></div>
+
+                    </div>
+
+
+
+                    <!-- GRAD CAM -->
+
+                    <div class="gradcam-section">
+
+                        <div class="result-section-title">
+                            Grad-CAM Attention
+                        </div>
+
+
+                        <div
+                            id="gradcamContainer"
+                            class="gradcam-container"
+                        >
+
+
+                            <div
+                                id="gradcamPlaceholder"
+                                class="gradcam-placeholder"
+                            >
+
+                                <span>
+                                    AI VISION
+                                </span>
+
+                                <p>
+                                    Attention visualization
+                                    will appear here.
+                                </p>
+
+                            </div>
+
+
+                            <div
+                                id="gradcamLoading"
+                                style="display: none;"
+                            >
+                                Generating visualization...
+                            </div>
+
+
+                            <img
+                                id="gradcamImage"
+                                class="gradcam-image"
+                                alt="Grad-CAM visualization"
+                                style="display: none;"
+                            >
+
+                        </div>
+
+
+                        <p class="gradcam-description">
+
+                            Grad-CAM highlights image
+                            regions that influenced the
+                            model prediction. This
+                            visualization is intended for
+                            research and educational
+                            purposes.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- MODEL META -->
+
+                    <div class="model-meta">
+
+                        <div>
+
+                            <span>
+                                MODEL
+                            </span>
+
+                            <strong id="modelName">
+                                MobileNetV2
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                INPUT
+                            </span>
+
+                            <strong>
+                                224 × 224
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                METHOD
+                            </span>
+
+                            <strong>
+                                Transfer Learning
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                ACCURACY
+                            </span>
+
+                            <strong id="modelAccuracy">
+                                83.13%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ERROR -->
+
+                <div
+                    id="analyzerError"
+                    style="display: none;"
+                ></div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= DISCLAIMER ================= -->
+
+        <section class="dashboard-cta">
+
+            <div>
+
+                <span class="hero-tag">
+                    RESEARCH & EDUCATIONAL PROTOTYPE
+                </span>
+
+
+                <h2>
+                    AI output is not a medical diagnosis.
+                </h2>
+
+
+                <p>
+                    This prototype is intended for
+                    research and educational purposes
+                    and should not replace evaluation
+                    by a qualified healthcare professional.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="footer">
+
+            <span>
+                BrainAI MRI Intelligence
+            </span>
+
+
+            <span>
+                MobileNetV2 · Grad-CAM
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script
+    src="{{ url_for('static', filename='js/dashboard.js') }}"
+></script>
+
+
+</body>
+
+</html>

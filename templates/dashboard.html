@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | BrainAI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                <img
+                    src="{{ url_for('static', filename='images/brain.png') }}"
+                    alt="BrainAI"
+                >
+            </div>
+
+            <div class="brand-text">
+                <strong>BrainAI</strong>
+                <span>MRI Intelligence</span>
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <span class="sidebar-label">
+                Workspace
+            </span>
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="/"
+                    class="sidebar-link active"
+                >
+                    <span class="nav-icon">⌂</span>
+                    Dashboard
+                </a>
+
+                <a
+                    href="/analyzer"
+                    class="sidebar-link"
+                >
+                    <span class="nav-icon">◉</span>
+                    MRI Analysis
+                </a>
+
+                <a
+                    href="/insights"
+                    class="sidebar-link"
+                >
+                    <span class="nav-icon">◈</span>
+                    Model Insights
+                </a>
+
+                <a
+                    href="/about"
+                    class="sidebar-link"
+                >
+                    <span class="nav-icon">ⓘ</span>
+                    Explainability
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>AI Engine Online</strong>
+                    <small>MobileNetV2</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="eyebrow">
+                    BRAIN MRI INTELLIGENCE
+                </span>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+            <div class="topbar-status">
+
+                <span class="status-dot"></span>
+
+                System Online
+
+            </div>
+
+        </header>
+
+
+        <section class="dashboard-hero">
+
+            <div class="hero-grid">
+
+                <div class="hero-copy">
+
+                    <span class="hero-tag">
+                        AI-POWERED MEDICAL IMAGING
+                    </span>
+
+                    <h2>
+                        Brain MRI intelligence
+                        for research and education.
+                    </h2>
+
+                    <p>
+                        Explore a deep learning prototype
+                        built to classify brain MRI images
+                        across four trained categories and
+                        visualize model attention using
+                        Grad-CAM.
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <a
+                            href="/analyzer"
+                            class="primary-button"
+                        >
+                            Analyze MRI →
+                        </a>
+
+                        <a
+                            href="/insights"
+                            class="secondary-button"
+                        >
+                            View Model Insights
+                        </a>
+
+                    </div>
+
+
+                    <div class="hero-stats">
+
+                        <div class="hero-stat">
+                            <strong>04</strong>
+                            <span>Classes</span>
+                        </div>
+
+                        <div class="hero-stat">
+                            <strong>7,200</strong>
+                            <span>Images</span>
+                        </div>
+
+                        <div class="hero-stat">
+                            <strong>83.13%</strong>
+                            <span>Test Accuracy</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="hero-grid-lines"></div>
+
+                    <div class="visual-ring ring-one"></div>
+
+                    <div class="visual-ring ring-two"></div>
+
+                    <img
+                        src="{{ url_for('static', filename='images/brain.png') }}"
+                        class="hero-brain"
+                        alt="Brain"
+                    >
+
+                    <div class="floating-label label-top">
+                        AI VISION
+                    </div>
+
+                    <div class="floating-label label-bottom">
+                        GRAD-CAM
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="metric-grid">
+
+            <div class="metric-card">
+
+                <span>DATASET</span>
+
+                <strong>
+                    7,200
+                </strong>
+
+                <small>
+                    MRI images
+                </small>
+
+            </div>
+
+            <div class="metric-card">
+
+                <span>TRAINING</span>
+
+                <strong>
+                    5,600
+                </strong>
+
+                <small>
+                    Training images
+                </small>
+
+            </div>
+
+            <div class="metric-card">
+
+                <span>TESTING</span>
+
+                <strong>
+                    1,600
+                </strong>
+
+                <small>
+                    Test images
+                </small>
+
+            </div>
+
+            <div class="metric-card">
+
+                <span>MODEL</span>
+
+                <strong>
+                    83.13%
+                </strong>
+
+                <small>
+                    Test accuracy
+                </small>
+
+            </div>
+
+        </section>
+
+
+        <section class="analysis-grid">
+
+            <div class="analysis-card">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            CLASSIFICATION
+                        </span>
+
+                        <h2>
+                            Four MRI Classes
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="class-grid">
+
+                    <div class="class-card">
+                        <span>01</span>
+                        <strong>Glioma</strong>
+                        <small>Brain tumor class</small>
+                    </div>
+
+                    <div class="class-card">
+                        <span>02</span>
+                        <strong>Meningioma</strong>
+                        <small>Brain tumor class</small>
+                    </div>
+
+                    <div class="class-card">
+                        <span>03</span>
+                        <strong>No Tumor</strong>
+                        <small>Non-tumor class</small>
+                    </div>
+
+                    <div class="class-card">
+                        <span>04</span>
+                        <strong>Pituitary</strong>
+                        <small>Brain tumor class</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="analysis-card engine-card">
+
+                <span class="eyebrow">
+                    MODEL ENGINE
+                </span>
+
+                <h2>
+                    MobileNetV2
+                </h2>
+
+                <p>
+                    Transfer learning architecture
+                    trained for four-class MRI image
+                    classification.
+                </p>
+
+                <div class="engine-row">
+                    <span>Input</span>
+                    <strong>224 × 224</strong>
+                </div>
+
+                <div class="engine-row">
+                    <span>Framework</span>
+                    <strong>TensorFlow / Keras</strong>
+                </div>
+
+                <div class="engine-row">
+                    <span>Explainability</span>
+                    <strong>Grad-CAM</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="dashboard-cta">
+
+            <div>
+
+                <span class="hero-tag">
+                    READY TO ANALYZE
+                </span>
+
+                <h2>
+                    Start with a brain MRI scan.
+                </h2>
+
+                <p>
+                    Upload an image and explore the
+                    model's prediction and attention
+                    visualization.
+                </p>
+
+            </div>
+
+            <a
+                href="/analyzer"
+                class="primary-button"
+            >
+                Open MRI Analyzer →
+            </a>
+
+        </section>
+
+
+        <footer class="footer">
+
+            <span>
+                BrainAI MRI Intelligence
+            </span>
+
+            <span>
+                Research & Educational Prototype
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+
+</html>
